@@ -2591,3 +2591,33 @@ footer .copyright span:last-child::after {
 }
 
 /*# sourceMappingURL=main.css.map */
+
+#intro {
+  background: #151515 url(../images/intro-bg.png) no-repeat center bottom;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  min-height: 720px;
+  display: table;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+#nnCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* 背面 */
+}
+
+#intro .content {
+  position: relative;
+  z-index: 1; /* 前面 */
+  color: white;
+}
