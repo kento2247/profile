@@ -1,18 +1,24 @@
 const canvas = document.getElementById("nnCanvas");
 const ctx = canvas.getContext("2d");
 
+let numNodes = 50;
+let nodes = [];
+let connections = [];
+let particles = [];
+
 function resizeCanvas() {
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
+
+  // ノード・接続をリセット
+  nodes = [];
+  connections = [];
+  particles = [];
+  initNodes();
 }
 
 window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
-
-const numNodes = 40;
-const nodes = [];
-const connections = [];
-const particles = [];
 
 function initNodes() {
   for (let i = 0; i < numNodes; i++) {
@@ -24,7 +30,7 @@ function initNodes() {
 
   for (let i = 0; i < numNodes; i++) {
     for (let j = i + 1; j < numNodes; j++) {
-      if (Math.random() < 0.2) {
+      if (Math.random() < 0.05) {
         connections.push({ from: nodes[i], to: nodes[j] });
         particles.push({
           from: nodes[i],
@@ -39,11 +45,11 @@ function initNodes() {
 function drawNetwork() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // 背景色（上書き）
+  // 背景色
   ctx.fillStyle = "#132040";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // 線を描画
+  // 線
   ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
   for (let conn of connections) {
     ctx.beginPath();
@@ -52,7 +58,7 @@ function drawNetwork() {
     ctx.stroke();
   }
 
-  // ノードを描画
+  // ノード
   ctx.fillStyle = "white";
   for (let node of nodes) {
     ctx.beginPath();
@@ -60,7 +66,7 @@ function drawNetwork() {
     ctx.fill();
   }
 
-  // 光の粒を描画
+  // 光の粒
   for (let p of particles) {
     const x = p.from.x + (p.to.x - p.from.x) * p.progress;
     const y = p.from.y + (p.to.y - p.from.y) * p.progress;
@@ -80,5 +86,4 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-initNodes();
 animate();
