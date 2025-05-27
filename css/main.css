@@ -48,6 +48,16 @@ html {
   font-size: 10px;
 }
 
+html,
+body {
+  overscroll-behavior: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 @media only screen and (max-width: 1024px) {
   html {
     font-size: 9.411764705882353px;
