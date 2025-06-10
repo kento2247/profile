@@ -79,7 +79,7 @@ body {
   height: 100%;
 }
 body {
-  background: #151515;
+  background: #132040;
   font-family: "lora-regular", serif;
   font-size: 1.7rem;
   line-height: 3rem;
@@ -1014,7 +1014,7 @@ input::-moz-focus-inner {
 }
 .skill-bars li {
   height: 0.6rem;
-  background: #a1a1a1;
+  background: #d2d2d2;
   width: 100%;
   margin-bottom: 6rem;
   padding: 0;
@@ -1025,14 +1025,14 @@ input::-moz-focus-inner {
   left: 0;
   top: -3rem;
   font-family: "poppins-bold", sans-serif;
-  color: #313131;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   font-size: 1.5rem;
   line-height: 2.4rem;
 }
 .skill-bars li .progress {
-  background: #313131;
+  background: #636363;
   position: relative;
   height: 100%;
 }
